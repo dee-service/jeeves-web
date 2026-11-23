@@ -26,6 +26,7 @@
       <a href="#deck-commands">Deck</a>
       <a href="#card-commands">Cards</a>
       <a href="#rank-commands">Rank</a>
+      <a href="#hsjeeves">HSJeeves</a>
       <a href="#admin-commands">Admin</a>
       <a href="https://github.com/deesnow/HS-Snake">GitHub</a>
     </nav>
@@ -252,7 +253,7 @@
   <section id="hdt-token" class="cmd-section">
     <div class="wrap">
       <h2>HDT Token</h2>
-      <p class="section-intro">For use with the Hearthstone Deck Tracker RankTrackerPlugin.</p>
+      <p class="section-intro">For use with the Hearthstone Deck Tracker RankTrackerPlugin, and with the <a href="#hsjeeves">HSJeeves</a> app that replaces it.</p>
 
       <article class="cmd-card cmd-card-text-only">
         <div class="cmd-text">
@@ -260,6 +261,66 @@
           <p>
             Generate a bearer token for the Hearthstone Deck Tracker RankTrackerPlugin,
             delivered via DM. Regenerating a token invalidates the old one.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="hsjeeves" class="cmd-section alt">
+    <div class="wrap">
+      <h2>HSJeeves — rank tracker for Windows</h2>
+      <p class="section-intro">
+        The Hearthstone Deck Tracker stops supporting plugins on 30 November 2026.
+        HSJeeves is a small standalone Windows app that replaces the RankTrackerPlugin:
+        it runs in the system tray, notices when a ranked game ends and sends the result
+        and your rank before and after to Jeeves. HDT is not needed.
+      </p>
+
+      <article class="cmd-card cmd-card-text-only">
+        <div class="cmd-text">
+          <h3>Get started</h3>
+          <ol class="steps">
+            <li>Send <code>/hdttoken</code> to Jeeves in Discord to get your API key
+              (the key from the old plugin still works).</li>
+            <li>Download and run the installer below. No administrator rights needed.</li>
+            <li>Paste the key when the installer asks (or later: tray icon &rarr; Settings).</li>
+            <li>HSJeeves starts in <strong>dry-run mode</strong>, so nothing is uploaded twice
+              while the old plugin is active. Switch off the RankTracker plugin in HDT
+              (<em>Options &rarr; Plugins</em>), then open HSJeeves Settings, click
+              <em>Test connection</em>, untick <em>Dry run</em> and Save.</li>
+            <li>If Hearthstone was running during setup, restart it once, so concedes can be detected.</li>
+          </ol>
+        </div>
+      </article>
+
+      <article class="cmd-card cmd-card-text-only">
+        <div class="cmd-text">
+          <h3>Download</h3>
+          <div id="hsj-downloads" class="downloads" aria-live="polite">
+            <p class="muted">Loading downloads&hellip;</p>
+          </div>
+          <p class="muted small">
+            Windows 10/11 (64-bit), .NET Framework 4.7.2 or newer. The installer is
+            <strong>not code-signed</strong>, so Windows SmartScreen shows
+            &ldquo;Unknown publisher&rdquo;: click <em>More info</em>, then <em>Run anyway</em>.
+            To verify the file, compare its SHA-256 (<code>Get-FileHash &lt;file&gt;</code> in PowerShell)
+            with the value shown here. The last few versions are kept, so you can go back
+            to an earlier one if a new version gives you trouble.
+          </p>
+        </div>
+      </article>
+
+      <article class="cmd-card cmd-card-text-only">
+        <div class="cmd-text">
+          <h3>What it reads and sends</h3>
+          <p>
+            HSJeeves reads Hearthstone&rsquo;s memory read-only, through the same HearthMirror
+            library HDT uses, and one line type from the game&rsquo;s <code>Power.log</code>
+            (a player conceded). For each finished <strong>ranked</strong> game it uploads your
+            BattleTag, region, format, result, concede flag, start and end time, your rank before
+            and after, and the <strong>opponent&rsquo;s BattleTag</strong>, only to Jeeves and only
+            with your personal key. It is not an official Blizzard tool, so use it at your own risk.
           </p>
         </div>
       </article>

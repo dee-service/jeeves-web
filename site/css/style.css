@@ -343,3 +343,16 @@ h1, h2, h3 {
 .site-footer p {
   margin: 0 0 8px;
 }
+
+/* HSJeeves downloads */
+
+.steps { margin: 0; padding-left: 1.3em; color: var(--text-muted); }
+.steps li + li { margin-top: 8px; }
+.muted { color: var(--text-muted); }
+.small { font-size: 0.9rem; }
+.downloads .dl-latest { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin: 8px 0 12px; }
+.downloads .dl-meta { color: var(--text-muted); font-size: 0.9rem; }
+.downloads .sha { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.8rem; word-break: break-all; color: var(--text-muted); }
+.downloads h4 { margin: 18px 0 6px; color: var(--gold-bright); font-size: 0.95rem; }
+.downloads ul { list-style: none; margin: 0; padding: 0; }
+.downloads li { padding: 8px 0; border-top: 1px solid var(--border); }
